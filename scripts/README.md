@@ -1,1 +1,1 @@
-Useed scripts
+Used scripts
