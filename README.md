@@ -18,7 +18,9 @@
 ## Plots
 
 - (Basic) Poland vs Australia (cases) line  plot animated \[ \], inteactive \[+\], static \[+\]
-- (Basic) Warsaw vs Austrialia states bar plot - animated / beg and end 
+- (Basic) Poland vs Australia (deaths) line  plot animated \[ \], inteactive \[+\], static \[+\]
+- (Basic) Warsaw vs Austrialia states bar plot (new cases)- animated / beg and end (or static lineplot)
+- (Basic) Warsaw vs Austrialia states bar plot (...)- animated / beg and end 
 - (Basic) Map plot with concentration of COVID cases
 - (Basic) Map plot with concentration of COVID death
 - (Stats) Histogram X  - number of people in hospital Y -  number of days
