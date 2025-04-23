@@ -8,7 +8,7 @@
 (because some tables are merged and lack some informations)
 ### Australia:
 * [states](https://github.com/M3IT/COVID-19_Data/blob/master/Data/COVID_AU_state.csv)
-* [country](), \(corrected from source delated negative new cases\)[sourece](https://github.com/M3IT/COVID-19_Data/blob/master/Data/COVID_AU_national.csv)
+* [country](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_AU_national.csv), \(corrected from [source](https://github.com/M3IT/COVID-19_Data/blob/master/Data/COVID_AU_national.csv) delated negative new cases\)
 * [general counts](https://github.com/owid/covid-19-data/blob/master/public/data/cases_deaths/full_data.csv)
 ### Poland:
 * [states](https://github.com/Polkas/coronaPL/blob/main/gov/data/pow_df_full.csv.gz)
