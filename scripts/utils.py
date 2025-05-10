@@ -18,6 +18,20 @@ def parse_args(name):
 	  help="""Path to file containing general weekly information about the whole  Australia; default: ./../data/COVID_AU_years.csv""",
 	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_AU_years.csv")))
 
+	parser.add_argument('-AUe','--PATH_TO_AU_excess',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing estimated excess ceath count for Australia; default: ./../data/COVID_AU_excess.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_AU_excess.csv")))
+	parser.add_argument('-AUt','--PATH_TO_AU_tests',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about tests in Australia states; default: ./../data/COVID_AU_test_states.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_AU_test_states.csv")))
+	parser.add_argument('-AUvs','--PATH_TO_AU_vac_states',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about tests in Australia states; default: ./../data/COVID_AU_vac_states.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_AU_vac_states.csv")))
+	parser.add_argument('-AUv','--PATH_TO_AU_vac',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about tests in whole Australia; default: ./../data/COVID_AU_vac.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_AU_vacc.csv")))
+
+
 	parser.add_argument('-PLn','--PATH_TO_PL_national',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
 	  help="""Path to file containing daly information about whole Poland; default: ./../data/COVID_PL_national.csv""",
 	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_PL_national.csv")))
@@ -27,6 +41,34 @@ def parse_args(name):
 	parser.add_argument('-PLy','--PATH_TO_PL_years',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
 	  help="""Path to file containing general weekly information about the whole  Poland; default: ./../data/COVID_PL_years.csv""",
 	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_PL_years.csv")))
+
+	parser.add_argument('-PLe','--PATH_TO_PL_excess',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing estimated excess ceath count for Poland; default: ./../data/COVID_PL_excess.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_PL_excess.csv")))
+	parser.add_argument('-PLv','--PATH_TO_PL_vac',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about tests in whole Poland; default: ./../data/COVID_PL_vacc.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_PL_vacc.csv")))
+
+
+	parser.add_argument('-t','--PATH_TO_tests',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about tests in Poland and Australia; default: ./../data/COVID_test.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_test.csv")))	
+	parser.add_argument('-hosp','--PATH_TO_hosp',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about hospitalised patients in Poland and Australia; default: ./../data/COVID_hospital.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_hospital.csv")))
+
+	parser.add_argument('-nc','--PATH_TO_new_cases_per_m',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about new cases per milion in Poland and Australia; default: ./../data/COVID_new_cases_per_milion.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_new_cases_per_milion.csv")))
+	parser.add_argument('-tc','--PATH_TO_total_cases_per_m',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about new cases per milion in Poland and Australia; default: ./../data/COVID_total_cases_per_milion.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_total_cases_per_milion.csv")))
+	parser.add_argument('-nd','--PATH_TO_new_deaths_per_m',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about new cases per milion in Poland and Australia; default: ./../data/COVID_new_deaths_per_milion.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_new_deaths_per_milion.csv")))
+	parser.add_argument('-td','--PATH_TO_total_deaths_per_m',metavar='DATA_PATH',  type=pathlib.Path, action='store',nargs=1,
+	  help="""Path to file containing information about new cases per milion in Poland and Australia; default: ./../data/COVID_total_deaths_per_milion.csv""",
+	  default=pathlib.Path(os.path.join(WORKING_DIR,"data/COVID_total_deaths_per_milion.csv")))
 
 	parser.add_argument('-o','--PATH_TO_OUTPUT',metavar='OUTPUT_PATH',  action='store',nargs=1,type=pathlib.Path,
 		help=f"""Path where output image will be saved, if s = 1;
@@ -91,6 +133,98 @@ def parse_args(name):
 		print(f"Input file not found, check if path is correct:\n{data_PLy}")
 		data_PLy=None
 
+
+### new part
+	if isinstance(args.PATH_TO_AU_excess, pathlib.Path):
+		data_AUe=args.PATH_TO_AU_excess
+	else:
+		data_AUe=args.PATH_TO_AU_excess[0]
+	if not ( os.path.isfile(data_AUe) or os.path.isfile(os.path.abspath(data_AUe))):
+		print(f"Input file not found, check if path is correct:\n{data_AUe}")
+		data_AUe=None
+	if isinstance(args.PATH_TO_PL_excess, pathlib.Path):
+		data_PLe=args.PATH_TO_PL_excess
+	else:
+		data_PLe=args.PATH_TO_PL_excess[0]
+	if not ( os.path.isfile(data_PLe) or os.path.isfile(os.path.abspath(data_PLe))):
+		print(f"Input file not found, check if path is correct:\n{data_PLe}")
+		data_PLe=None
+
+	if isinstance(args.PATH_TO_AU_vac, pathlib.Path):
+		data_AUv=args.PATH_TO_AU_vac
+	else:
+		data_AUv=args.PATH_TO_AU_vac[0]
+	if not ( os.path.isfile(data_AUv) or os.path.isfile(os.path.abspath(data_AUv))):
+		print(f"Input file not found, check if path is correct:\n{data_AUv}")
+		data_AUv=None
+	if isinstance(args.PATH_TO_PL_vac, pathlib.Path):
+		data_PLv=args.PATH_TO_PL_vac
+	else:
+		data_PLv=args.PATH_TO_PL_vac[0]
+	if not ( os.path.isfile(data_PLv) or os.path.isfile(os.path.abspath(data_PLv))):
+		print(f"Input file not found, check if path is correct:\n{data_PLv}")
+		data_PLv=None
+	if isinstance(args.PATH_TO_AU_vac_states, pathlib.Path):
+		data_AUvs=args.PATH_TO_AU_vac_states
+	else:
+		data_AUvs=args.PATH_TO_AU_vac_states[0]
+	if not ( os.path.isfile(data_AUvs) or os.path.isfile(os.path.abspath(data_AUvs))):
+		print(f"Input file not found, check if path is correct:\n{data_AUvs}")
+		data_AUvs=None
+	if isinstance(args.PATH_TO_AU_tests, pathlib.Path):
+		data_AUt=args.PATH_TO_AU_tests
+	else:
+		data_AUt=args.PATH_TO_AU_tests[0]
+	if not ( os.path.isfile(data_AUt) or os.path.isfile(os.path.abspath(data_AUt))):
+		print(f"Input file not found, check if path is correct:\n{data_AUt}")
+		data_AUt=None
+
+### new part - together
+	if isinstance(args.PATH_TO_tests, pathlib.Path):
+		data_t=args.PATH_TO_tests
+	else:
+		data_t=args.PATH_TO_tests[0]
+	if not ( os.path.isfile(data_t) or os.path.isfile(os.path.abspath(data_t))):
+		print(f"Input file not found, check if path is correct:\n{data_t}")
+		data_t=None
+	if isinstance(args.PATH_TO_hosp, pathlib.Path):
+		data_h=args.PATH_TO_hosp
+	else:
+		data_h=args.PATH_TO_hosp[0]
+	if not ( os.path.isfile(data_h) or os.path.isfile(os.path.abspath(data_h))):
+		print(f"Input file not found, check if path is correct:\n{data_h}")
+		data_h=None
+
+	if isinstance(args.PATH_TO_new_cases_per_m, pathlib.Path):
+		data_nc=args.PATH_TO_new_cases_per_m
+	else:
+		data_nc=args.PATH_TO_new_cases_per_m[0]
+	if not ( os.path.isfile(data_nc) or os.path.isfile(os.path.abspath(data_nc))):
+		print(f"Input file not found, check if path is correct:\n{data_nc}")
+		data_nc=None
+	if isinstance(args.PATH_TO_total_cases_per_m, pathlib.Path):
+		data_tc=args.PATH_TO_total_cases_per_m
+	else:
+		data_tc=args.PATH_TO_total_cases_per_m[0]
+	if not ( os.path.isfile(data_tc) or os.path.isfile(os.path.abspath(data_tc))):
+		print(f"Input file not found, check if path is correct:\n{data_tc}")
+		data_tc=None
+
+	if isinstance(args.PATH_TO_new_deaths_per_m, pathlib.Path):
+		data_nd=args.PATH_TO_new_deaths_per_m
+	else:
+		data_nd=args.PATH_TO_new_deaths_per_m[0]
+	if not ( os.path.isfile(data_nd) or os.path.isfile(os.path.abspath(data_nd))):
+		print(f"Input file not found, check if path is correct:\n{data_nd}")
+		data_nd=None
+	if isinstance(args.PATH_TO_total_deaths_per_m, pathlib.Path):
+		data_td=args.PATH_TO_total_deaths_per_m
+	else:
+		data_td=args.PATH_TO_total_deaths_per_m[0]
+	if not ( os.path.isfile(data_td) or os.path.isfile(os.path.abspath(data_td))):
+		print(f"Input file not found, check if path is correct:\n{data_td}")
+		data_td=None
+
 	# output check:
 	if args.PATH_TO_OUTPUT is None:
 		if s==1:
@@ -108,7 +242,14 @@ def parse_args(name):
 		out=None
 
 	if out and data_AUn and data_AUy and data_AUs and data_PLn and data_PLy and data_PLs:
-		return [out,s, data_AUn, data_AUs, data_AUy, data_PLn, data_PLs, data_PLy]
+		return [out,s, data_AUn, data_AUs, data_AUy, data_PLn, data_PLs, data_PLy,
+		 data_AUe, data_AUe, 			# 8, 9 		 - excess deaths
+		 data_AUv, data_PLv, data_AUvs, # 10, 11, 12 - vaccinations
+		 data_AUt, data_t, 				# 13, 14	 - tests
+		 data_h,						# 15		 - hospitalised
+		 data_nc, data_tc,				# 16, 17	 - new / total cases per milion
+		 data_nd, data_td,				# 18, 19	 - new / total deaths per milion
+		 ]
 
 	else:
 
