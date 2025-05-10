@@ -5,6 +5,7 @@
 
 ## paths to data repositories:
 * Australia: [https://github.com/M3IT/COVID-19_Data](https://github.com/M3IT/COVID-19_Data)
+* Australia: [https://covidbaseau.com/](https://covidbaseau.com/)
 * Poland: [https://github.com/Polkas/coronaPL/tree/main](https://github.com/Polkas/coronaPL/tree/main)
 * general dataset: [https://github.com/owid/covid-19-data/tree/master](https://github.com/owid/covid-19-data/tree/master)
 ## selected data tables:
