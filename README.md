@@ -2,6 +2,7 @@
 
 ## Articles about stituation in Australia
 * [www.aihw.gov.au](https://www.aihw.gov.au/reports/australias-health/covid-19)
+* [covidbaseau.com](https://covidbaseau.com/timeline/) - timeline of epidemy described by days/weeks
 
 ## paths to data repositories:
 * Australia: [https://github.com/M3IT/COVID-19_Data](https://github.com/M3IT/COVID-19_Data)
