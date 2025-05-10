@@ -26,11 +26,15 @@
 * [country](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_AU_national.csv), \(corrected from [source](https://github.com/M3IT/COVID-19_Data/blob/master/Data/COVID_AU_national.csv) delated negative new cases\)
 * [general counts](https://github.com/owid/covid-19-data/blob/master/public/data/cases_deaths/full_data.csv)
 * [excess deaths](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_AU_excess.csv) \(Adapted from [source](https://github.com/owid/covid-19-data/blob/master/public/data/excess_mortality/excess_mortality.csv), selecting only Australia \)
+* [vaccination](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_AU_vacc.csv) \(Adapted from [source](https://raw.githubusercontent.com/owid/covid-19-data/refs/heads/master/public/data/vaccinations/vaccinations.csv), selecting only Australia \)
+* [vaccination per state](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_AU_vac_states.csv) \(Adapted from [source](https://covidbaseau.com/historical/?title=Jurisdiction%20Doses%20Administered&return=https://covidbaseau.com/vaccinations/)\)
+ 
 ### Poland:
 * [states](https://github.com/Polkas/coronaPL/blob/main/gov/data/pow_df_full.csv.gz)
 * [country](https://github.com/Polkas/coronaPL/blob/main/gov/data/pow_df_full.csv.gz)
 * [general counts](https://github.com/owid/covid-19-data/blob/master/public/data/cases_deaths/full_data.csv)
 * [excess deaths](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_PL_excess.csv) \(Adapted from [source](https://github.com/owid/covid-19-data/blob/master/public/data/excess_mortality/excess_mortality.csv), selecting only Poland \)
+* [vaccination](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_PL_vacc.csv) \(Adapted from [source](https://raw.githubusercontent.com/owid/covid-19-data/refs/heads/master/public/data/vaccinations/vaccinations.csv), selecting only Poland \)
 
 (data from daily datasets for country separatly except cases and case_cum have some worring behavior - check plot5)
 
