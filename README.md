@@ -16,6 +16,7 @@
 * [new_deaths_per_milion](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_new_deaths_per_milion.csv) \(Adapted from [source](https://github.com/owid/covid-19-data/blob/master/public/data/cases_deaths/new_deaths_per_million.csv)\)
 * [total_cases_per_milion](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_total_cases_per_milion.csv) \(Adapted from [source](https://github.com/owid/covid-19-data/blob/master/public/data/cases_deaths/total_cases_per_million.csv)\)
 * [total_deaths_per_milion](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_total_deaths_per_milion.csv) \(Adapted from [source](https://github.com/owid/covid-19-data/blob/master/public/data/cases_deaths/total_deaths_per_million.csv)\)
+* [hospitalized](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_hospital.csv) \(Adapted from [source](https://github.com/owid/covid-19-data/blob/master/public/data/hospitalizations/covid-hospitalizations.csv)\)
 
 
 ### Australia:
@@ -28,6 +29,8 @@
 * [country](https://github.com/Polkas/coronaPL/blob/main/gov/data/pow_df_full.csv.gz)
 * [general counts](https://github.com/owid/covid-19-data/blob/master/public/data/cases_deaths/full_data.csv)
 * [excess deaths](https://github.com/D4S1/DAV-COVID-19-project/blob/main/data/COVID_PL_excess.csv) \(Adapted from [source](https://github.com/owid/covid-19-data/blob/master/public/data/excess_mortality/excess_mortality.csv), selecting only Poland \)
+
+(data from daily datasets for country separatly except cases and case_cum have some worring behavior - check plot5)
 
 ## Plots
 
