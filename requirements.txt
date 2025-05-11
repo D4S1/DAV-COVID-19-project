@@ -1,0 +1,6 @@
+pandas
+plotly
+folium
+branca
+geopandas
+jinja2
