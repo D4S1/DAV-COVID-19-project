@@ -13,13 +13,13 @@ from matplotlib.ticker import AutoMinorLocator
 import seaborn as sns
 
 def main():
-	args = parse_args("plot_pred_nc")
+	args = parse_args("plot_pred_cd")
 	if args:
 		# common parts
-		data=pd.read_csv(args[16])[["date","Australia"]]
+		data=pd.read_csv(args[19])[["date","Australia"]]
 		data = data.loc[(data["Australia"].isna()==False)].reset_index()
 		start_pred = data.index[((data['date'] <= '2021-12-17') & (data['date'] > '2021-12-10'))].values[0]
-		end_pred = data.index[((data['date'] <= '2023-02-20') & (data['date'] > '2023-02-13'))].values[0]
+		end_pred = data.index[((data['date'] <= '2022-12-25') & (data['date'] > '2022-12-17'))].values[0]
 		data.set_index("date", inplace=True)
 		ymin=0
 		ymax=data["Australia"].max()
@@ -38,69 +38,41 @@ def main():
 		n = len(df_diff)
 		df_diff1=df_diff.iloc[:start_pred].reset_index()["New deaths"]
 		df_diff2=df_diff.iloc[start_pred:end_pred].reset_index()["New deaths"]
-		print(df_diff1)
-#		print(df_diff2)
 		# make full model
 		p=5
-		s=1
+		s=0
 		d=5
-		model = ARIMA(df_diff1,order=(p,s,d))
-		model_fit = model.fit() 
+		w=0
+		t="t"
 
-		print(model_fit.summary())
-		code1 = ""
-		if s:
-			code1=f"ARIMA({p},{s},{d})"
-		else:
-			if p and d:
-				code1=f"ARMA({p},{d})"
-			elif p:
-				code1=f"AR({p})"
-			else:
-				code1=f"MA({d})"
+		model_fit,code1 = make_SARIMA(df_diff1, p,s,d,w,t)
 
 
 		pred = model_fit.get_prediction(start=0, end=len(data.index))
 		pred_summary = pred.summary_frame(alpha=0.05)
 		pred_summary=pred_summary.iloc[1:]
-		pred_summary.loc[pred_summary.index[0],"mean_ci_lower"]=pred_summary.loc[pred_summary.index[0],"mean_ci_lower"].clip(data["New deaths"].min(),data["New deaths"].max())
-		pred_summary.loc[pred_summary.index[0],"mean_ci_upper"]=pred_summary.loc[pred_summary.index[0],"mean_ci_upper"].clip(data["New deaths"].min(),data["New deaths"].max())
-		pred_summary.loc[pred_summary.index[0],"mean"]=pred_summary.loc[pred_summary.index[0],"mean"].clip(data["New deaths"].min(),data["New deaths"].max())
-#		print(pred_summary)
-		pred_summary.index=data.index # pd.Index(list(range(data.index[0],data.index[0] + len(pred_summary) )))
-#		print(pred_summary)
-		start_value=data.loc[data.index[p],"New deaths"]
+		pred_summary.index=data.index
 
 		# for second prediction
-		p=3
+
+		""" # with w = 0
+		p=[7] # [1,2,3,7,8,9,10] #10
 		s=0
-		d=3
-		model = ARIMA(df_diff2,order=(p,s,d),trend="c") # ,trend="c"
-		model_fit = model.fit() 
+		d=10
+		w = 0
+		t="ct"
+		"""
+		p=2 # [1,2,3,7,8,9,10] #10
+		s=0
+		d=5
+		w = 7
+		t="t"
+		model_fit,code2 = make_SARIMA(df_diff2, p,s,d,w,t)
 
-		print(model_fit.summary())
-		code2 = ""
-		if s:
-			code2=f"ARIMA({p},{s},{d})"
-		else:
-			if p and d:
-				code2=f"ARMA({p},{d})"
-			elif p:
-				code2=f"AR({p})"
-			else:
-				code2=f"MA({d})"
-
-
-		pred = model_fit.get_prediction(start=0, end=len(data.index)-start_pred)
+		pred = model_fit.get_prediction(start=0, end=len(data.index)-start_pred-1)
 		pred_summary2 = pred.summary_frame(alpha=0.05)
 		pred_summary2=pred_summary2.iloc[1:]
-		pred_summary2.loc[pred_summary2.index[0],"mean_ci_lower"]=pred_summary2.loc[pred_summary2.index[0],"mean_ci_lower"].clip(data["New deaths"].min(),data["New deaths"].max())
-		pred_summary2.loc[pred_summary2.index[0],"mean_ci_upper"]=pred_summary2.loc[pred_summary2.index[0],"mean_ci_upper"].clip(data["New deaths"].min(),data["New deaths"].max())
-		pred_summary2.loc[pred_summary2.index[0],"mean"]=pred_summary2.loc[pred_summary2.index[0],"mean"].clip(data["New deaths"].min(),data["New deaths"].max())
-#		print(pred_summary2)
-		pred_summary2.index=data.index[start_pred:] # pd.Index(list(range(data.index[0],data.index[0] + len(pred_summary) )))
-#		print(pred_summary2)
-		start_value2=data.loc[data.index[p],"New deaths"]
+		pred_summary2.index=data.index[start_pred+1:]
 
 		if args[1]<3:
 
@@ -184,7 +156,7 @@ def main():
 	#				hovertext='Start of prediction 1,\n2021-12-14',
 					showlegend=True,
 					line=dict(width=1,color='rgb(0,0,250)',dash='dash'))
-			fig.add_vline(x=data.index[end_pred],
+			fig.add_vline(x=data.index[end_pred], 
 					name="Start of prediction 2",
 	#				hovertext='Start of prediction 2,\n2023-01-04',
 					showlegend=True,
@@ -216,19 +188,19 @@ def main():
 					tickfont = dict(size=15),
 				),
 				yaxis=dict(
-					title=dict(text='New cases per milion'),
+					title=dict(text='Cumulative deaths per milion'),
 					tickfont = dict(size=15)
 				),
 				legend=dict(
 					title=dict(
-						text="Country"
+						text="Elements"
 					)
 				),
 				font=dict(
 					size=20,
 				),
 				title=dict(
-					text='Daily cases per milion of Australia population',
+					text='Total number of deaths per milion of Australia population',
 					font=dict(size=30),
 					x=0.5,
 					xanchor='center',
