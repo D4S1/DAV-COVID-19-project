@@ -1,6 +1,7 @@
 import argparse
 import os
 import pathlib
+from statsmodels.tsa.arima.model import ARIMA
 
 def parse_args(name):
 	WORKING_DIR=pathlib.Path(os.getcwd()).parent
@@ -243,7 +244,7 @@ def parse_args(name):
 
 	if out and data_AUn and data_AUy and data_AUs and data_PLn and data_PLy and data_PLs:
 		return [out,s, data_AUn, data_AUs, data_AUy, data_PLn, data_PLs, data_PLy,
-		 data_AUe, data_AUe, 			# 8, 9 		 - excess deaths
+		 data_AUe, data_PLe, 			# 8, 9 		 - excess deaths
 		 data_AUv, data_PLv, data_AUvs, # 10, 11, 12 - vaccinations
 		 data_AUt, data_t, 				# 13, 14	 - tests
 		 data_h,						# 15		 - hospitalised
@@ -255,9 +256,35 @@ def parse_args(name):
 
 		return None
 	
-	
 def get_mode():
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", help="Plot mode 0 - show, 1 - save to file", type=int)
     args = parser.parse_args()
     return args.mode
+
+def make_SARIMA(df_diff, p,s,d,w=0,t="c"):
+	if w:
+		if s:
+			model = ARIMA(df_diff,seasonal_order=(p,s,d,w))
+		else:
+			model = ARIMA(df_diff,seasonal_order=(p,s,d,w),trend=t) 
+	else:
+		if s:
+			model = ARIMA(df_diff,order=(p,s,d))
+		else:
+			model = ARIMA(df_diff,order=(p,s,d),trend=t) 
+	model_fit = model.fit() 
+	print(model_fit.summary())
+	code = ""
+	if s:
+		code=f"ARIMA({p},{s},{d})"
+	else:
+		if p and d:
+			code=f"ARMA({p},{d})"
+		elif p:
+			code=f"AR({p})"
+		else:
+			code=f"MA({d})"
+	if w:
+		code=f"S{code}".replace(")",f",{w})")
+	return model_fit,code
