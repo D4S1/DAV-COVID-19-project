@@ -130,7 +130,7 @@ def parse_args(name):
 		data_PLy=args.PATH_TO_PL_years
 	else:
 		data_PLy=args.PATH_TO_PL_years[0]
-	if not ( os.path.isfile(data_PLy) or os.path.isfile(os.path.abspath(data_PLny))):
+	if not ( os.path.isfile(data_PLy) or os.path.isfile(os.path.abspath(data_PLn))):
 		print(f"Input file not found, check if path is correct:\n{data_PLy}")
 		data_PLy=None
 
@@ -257,10 +257,12 @@ def parse_args(name):
 		return None
 	
 def get_mode():
+    import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", help="Plot mode 0 - show, 1 - save to file", type=int)
+    parser.add_argument("mode", help="Plot mode: 0 - show, 1 - save PNG, 2 - save HTML", type=int)
     args = parser.parse_args()
     return args.mode
+
 
 def make_SARIMA(df_diff, p,s,d,w=0,t="c"):
 	if w:

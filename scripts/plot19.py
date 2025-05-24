@@ -207,8 +207,8 @@ def main():
 
 		if args[1]==2:
 			fig.update_layout(
-				width=1200,
-				height=900)
+				width=1000,
+				height=600)
 			fig.write_html(f'{args[0]}', auto_open=False)
 			print(args[0])
 		elif args[1]==1:

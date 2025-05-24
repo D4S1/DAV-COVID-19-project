@@ -48,7 +48,7 @@ if __name__ == "__main__":
         locations="state",
         color="state",
         color_discrete_sequence=px.colors.qualitative.Pastel1,
-        title="Australian States: Cases per 100k People with Bubble Size Scaled by Population",
+        title="Cases per 100k People with Bubble Size Scaled by Population",
         labels={'state': "State"}
     )
     fig.update_layout(
@@ -89,9 +89,16 @@ if __name__ == "__main__":
         visible=False,
     )
 
-    if get_mode() == 0:
+    mode = get_mode()
+    if mode == 0:
         fig.show()
-    else:
+    elif mode == 2:
+        fig.update_layout(
+            showlegend=False,
+            title_font=dict(size=24),
+        )
+        fig.write_html("/home/hoshi/ME/Coding/DAV-COVID-19-project/images/static_cases_per_state_map.html")
+    elif mode ==1:
         fig.write_image("/home/hoshi/ME/Coding/DAV-COVID-19-project/images/static_cases_per_state_map.png",
                         width=1500,
 				        height=1000
