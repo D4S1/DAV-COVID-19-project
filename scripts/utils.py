@@ -254,3 +254,10 @@ def parse_args(name):
 	else:
 
 		return None
+	
+	
+def get_mode():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("mode", help="Plot mode 0 - show, 1 - save to file", type=int)
+    args = parser.parse_args()
+    return args.mode

@@ -26,11 +26,6 @@ if __name__ == "__main__":
     df_states['date'] = df_states['date'].dt.to_period('D')
     df_states = df_states[['date', 'state', 'confirmed_cum']]
 
-
-    # df_au = pd.read_csv("data/AU_population.csv").drop(columns=['Australia'])
-    # df_au = df_au.melt(id_vars="Date", var_name="state", value_name="population")
-    # df_au['Date'] = pd.PeriodIndex(df_au['Date'], freq="Q")
-
     cases_min = df_states['confirmed_cum'].min()
     cases_max = df_states['confirmed_cum'].max()
 
