@@ -1,5 +1,7 @@
 # DAV-COVID-19-project
 
+Aim of this project was showing some same statistic information about course of COVID-19 pandemic in Australia. We focused particularly on the level of infections and deaths, as well as the response to the disease: vaccinations and hospitalization. 
+
 ## Articles about stituation in Australia
 * [www.aihw.gov.au](https://www.aihw.gov.au/reports/australias-health/covid-19)
 * [covidbaseau.com](https://covidbaseau.com/timeline/) - timeline of epidemy described by days/weeks
