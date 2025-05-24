@@ -172,6 +172,13 @@
             </div>
         </div>
 
+        <div class="grid-item full-width">
+            <h3>Hospitalization</h3>
+            <div class="chart-container" style="min-height: 500px; padding: 10px; overflow: auto;">
+                <iframe src="images/plot22.html" style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+        </div>
+
         <!-- State Comparison -->
         <div class="grid-item full-width">
             <h3>Cases by State</h3>
@@ -312,8 +319,25 @@
         </div>
 
         <!-- Time Period Analysis -->
+
+        <h2>Waves Analysis</h2>
+            
         <div class="grid-item">
-            <h3>Waves Analysis: Cases</h3>
+            <h3>Total Cases</h3>
+            <div class="chart-container">
+                <iframe src="images/plot_pred_cc.html" style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <h3>Total deaths</h3>
+            <div class="chart-container">
+                <iframe src="images/plot_pred_cd.html" style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <h3>Daily Cases</h3>
             <div class="chart-container">
                 <iframe src="images/plot_pred_nc.html" style="width: 100%; height: 600px; border: none;"></iframe>
             </div>
@@ -321,7 +345,7 @@
 
         <!-- Vaccination Impact -->
         <div class="grid-item">
-            <h3>Waves Analysis: Deaths</h3>
+            <h3>Daily Deaths</h3>
             <div class="chart-container">
                 <iframe src="images/plot_pred_nd.html" style="width: 100%; height: 600px; border: none;"></iframe>
             </div>
