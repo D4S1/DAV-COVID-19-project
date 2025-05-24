@@ -142,7 +142,7 @@
                         <p>Total deaths</p>
                     </div>
                     <div>
-                        <span class="data-highlight">Month Year</span>
+                        <span class="data-highlight">January 2022</span>
                         <p>Peak infection period</p>
                     </div>
                     <div>
@@ -160,107 +160,96 @@
                 <div class="grid-item">
                     <h3>Case Trends</h3>
                     <div class="chart-container">
-                        [Line chart showing daily/weekly cases over time]
+                        <img src="images/plot9.gif" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 <div class="grid-item">
-                    <h3>Vaccination Progress</h3>
+                    <h3>Death Progress</h3>
                     <div class="chart-container">
-                        [Bar/line chart showing vaccination rates over time]
+                        <img src="images/plot11.gif" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Key Metrics -->
-        <div class="grid-item">
-            <h3>Key Metrics</h3>
-            <table>
-                <tr>
-                    <th>Metric</th>
-                    <th>Count</th>
-                </tr>
-                <tr>
-                    <td>Total Cases</td>
-                    <td>XXX,XXX</td>
-                </tr>
-                <tr>
-                    <td>Active Cases</td>
-                    <td>XX,XXX</td>
-                </tr>
-                <tr>
-                    <td>Deaths</td>
-                    <td>X,XXX</td>
-                </tr>
-                <tr>
-                    <td>Hospitalizations</td>
-                    <td>X,XXX</td>
-                </tr>
-                <tr>
-                    <td>Vaccinated (2+ doses)</td>
-                    <td>XX%</td>
-                </tr>
-            </table>
-        </div>
-
         <!-- State Comparison -->
-        <div class="grid-item">
+        <div class="grid-item full-width">
             <h3>Cases by State</h3>
-            <div class="chart-container">
-                [Pie/bar chart showing state distribution]
+            <div class="chart-container" style="min-height: 650px; padding: 10px; overflow: auto;">
+                <iframe src="images/static_cases_per_state_map.html" style="width: 100%; height: 600px; border: none;"></iframe>
             </div>
         </div>
 
         <!-- State Breakdown -->
         <div class="grid-item full-width">
-            <h2>State and Territory Analysis</h2>
+            <h2>Cumulative statistic for each state</h2>
             <div class="report-grid">
                 <div class="grid-item">
-                    <h3>NSW Overview</h3>
+                    <h3>Total</h3>
                     <div class="chart-container">
-                        [State-specific chart]
+                        <iframe src="images/map_cases.html" style="width: 100%; height: 600px; border: none;"></iframe>
                     </div>
-                    <p>Total cases: XXX,XXX</p>
-                    <p>Vaccination rate: XX%</p>
                 </div>
                 <div class="grid-item">
-                    <h3>VIC Overview</h3>
+                    <h3>Daily</h3>
                     <div class="chart-container">
-                        [State-specific chart]
+                        <iframe src="images/map_deaths.html" style="width: 100%; height: 600px; border: none;"></iframe>
                     </div>
-                    <p>Total cases: XXX,XXX</p>
-                    <p>Vaccination rate: XX%</p>
                 </div>
-                <div class="grid-item">
-                    <h3>QLD Overview</h3>
-                    <div class="chart-container">
-                        [State-specific chart]
-                    </div>
-                    <p>Total cases: XXX,XXX</p>
-                    <p>Vaccination rate: XX%</p>
-                </div>
-                <div class="grid-item">
-                    <h3>WA Overview</h3>
-                    <div class="chart-container">
-                        [State-specific chart]
-                    </div>
-                    <p>Total cases: XXX,XXX</p>
-                    <p>Vaccination rate: XX%</p>
                 </div>
             </div>
         </div>
+
+        <!-- State Breakdown -->
+        <div class="grid-item full-width">
+            <h2>Nation wide vacination trends</h2>
+            <div class="report-grid">
+                <div class="grid-item">
+                    <h3>Total</h3>
+                    <div class="chart-container">
+                        <img src="images/plot14.gif" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <h3>Daily</h3>
+                    <div class="chart-container">
+                        <img src="images/plot15.gif" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="grid-item full-width">
+        <h2>Vaccination Trends in States Comparison</h2>
+        
+        <!-- Total Vaccinations -->
+        <div class="grid-item">
+            <h3>Total Vaccinations</h3>
+            <div class="chart-container" style="min-height: 650px;">
+                <iframe src="images/plot19.html" style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+        </div>
+        
+        <!-- Daily Vaccinations -->
+        <div class="grid-item">
+            <h3>Daily Vaccinations</h3>
+            <div class="chart-container" style="min-height: 650px;">
+                <iframe src="images/plot20.html" style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+        </div>
+    </div>
 
         <!-- Detailed State Table -->
         <div class="grid-item full-width">
             <h3>State/Territory Comparison</h3>
             <table>
                 <tr>
-                    <th>State/Territory</th>
+                    <th>State</th>
                     <th>Total Cases</th>
-                    <th>Active Cases</th>
-                    <th>Deaths</th>
-                    <th>Vaccination Rate</th>
                     <th>Cases per 100k</th>
+                    <th>Total Deaths</th>
+                    <th>Vaccination Rate</th>
                 </tr>
                 <tr>
                     <td>New South Wales</td>
@@ -268,7 +257,6 @@
                     <td>XX,XXX</td>
                     <td>X,XXX</td>
                     <td>XX%</td>
-                    <td>XXXX</td>
                 </tr>
                 <tr>
                     <td>Victoria</td>
@@ -276,7 +264,48 @@
                     <td>XX,XXX</td>
                     <td>X,XXX</td>
                     <td>XX%</td>
-                    <td>XXXX</td>
+                </tr>
+                <tr>
+                    <td>Queensland</td>
+                    <td>XXX,XXX</td>
+                    <td>XX,XXX</td>
+                    <td>X,XXX</td>
+                    <td>XX%</td>
+                </tr>
+                <tr>
+                    <td>West Australia</td>
+                    <td>XXX,XXX</td>
+                    <td>XX,XXX</td>
+                    <td>X,XXX</td>
+                    <td>XX%</td>
+                </tr>
+                <tr>
+                    <td>South Australia</td>
+                    <td>XXX,XXX</td>
+                    <td>XX,XXX</td>
+                    <td>X,XXX</td>
+                    <td>XX%</td>
+                </tr>
+                <tr>
+                    <td>Tasmania</td>
+                    <td>XXX,XXX</td>
+                    <td>XX,XXX</td>
+                    <td>X,XXX</td>
+                    <td>XX%</td>
+                </tr>
+                <tr>
+                    <td>Australian Capital Territory</td>
+                    <td>XXX,XXX</td>
+                    <td>XX,XXX</td>
+                    <td>X,XXX</td>
+                    <td>XX%</td>
+                </tr>
+                <tr>
+                    <td>Northern Territory</td>
+                    <td>XXX,XXX</td>
+                    <td>XX,XXX</td>
+                    <td>X,XXX</td>
+                    <td>XX%</td>
                 </tr>
                 <!-- Additional states -->
             </table>
@@ -284,17 +313,17 @@
 
         <!-- Time Period Analysis -->
         <div class="grid-item">
-            <h3>Wave Analysis</h3>
+            <h3>Waves Analysis: Cases</h3>
             <div class="chart-container">
-                [Chart showing different pandemic waves]
+                <iframe src="images/plot_pred_nc.html" style="width: 100%; height: 600px; border: none;"></iframe>
             </div>
         </div>
 
         <!-- Vaccination Impact -->
         <div class="grid-item">
-            <h3>Vaccination Impact</h3>
+            <h3>Waves Analysis: Deaths</h3>
             <div class="chart-container">
-                [Chart showing cases vs vaccination rates]
+                <iframe src="images/plot_pred_nd.html" style="width: 100%; height: 600px; border: none;"></iframe>
             </div>
         </div>
 
