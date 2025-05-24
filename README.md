@@ -48,6 +48,4 @@
 - (Basic) Warsaw vs Austrialia states bar plot (...)- animated / beg and end 
 - (Basic) Map plot with concentration of COVID cases \[+\]
 - (Basic) Map plot with concentration of COVID death
-- (Stats) Histogram X  - number of people in hospital Y -  number of days
-- (Stats) Regression ? 
 - (Stats) Trend line based on linear model (split to 2 periods) \[+\]
