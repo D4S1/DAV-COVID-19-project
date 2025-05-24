@@ -1,5 +1,7 @@
 # DAV-COVID-19-project
 
+Aim of this project was showing some same statistic information about course of COVID-19 pandemic in Australia. We focused particularly on the level of infections and deaths, as well as the response to the disease: vaccinations and hospitalization. We also presented data estimating the excess of deaths related to CONVID-19 relative to non-CONVID-19 times.
+
 ## Articles about stituation in Australia
 * [www.aihw.gov.au](https://www.aihw.gov.au/reports/australias-health/covid-19)
 * [covidbaseau.com](https://covidbaseau.com/timeline/) - timeline of epidemy described by days/weeks
@@ -44,10 +46,6 @@
 - (Basic) Poland vs Australia (deaths) line  plot animated \[+\], inteactive \[+\], static \[+\]
 - (Basic) Poland vs Australia (vaccination) line  plot animated \[+\], inteactive \[+\], static \[+\]
 - (Basic) Australia states (vaccination) line  plot animated \[+\], inteactive \[+\], static \[+\]
-- (Basic) Warsaw vs Austrialia states bar plot (new cases)- animated / beg and end (or static lineplot)
-- (Basic) Warsaw vs Austrialia states bar plot (...)- animated / beg and end 
 - (Basic) Map plot with concentration of COVID cases \[+\]
-- (Basic) Map plot with concentration of COVID death
-- (Stats) Histogram X  - number of people in hospital Y -  number of days
-- (Stats) Regression ? 
-- (Stats) Trend line based on linear model (split to 2 periods) \[+\]
+- (Basic) Map plot with concentration of COVID death \[+\]
+- (Stats) Time series model prediction for new/total cases/deaths (split to 2 periods) \[+\]
