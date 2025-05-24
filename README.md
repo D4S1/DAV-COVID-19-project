@@ -1,6 +1,6 @@
 # DAV-COVID-19-project
 
-Aim of this project was showing some same statistic information about course of COVID-19 pandemic in Australia. We focused particularly on the level of infections and deaths, as well as the response to the disease: vaccinations and hospitalization. 
+Aim of this project was showing some same statistic information about course of COVID-19 pandemic in Australia. We focused particularly on the level of infections and deaths, as well as the response to the disease: vaccinations and hospitalization. We also presented data estimating the excess of deaths related to CONVID-19 relative to non-CONVID-19 times.
 
 ## Articles about stituation in Australia
 * [www.aihw.gov.au](https://www.aihw.gov.au/reports/australias-health/covid-19)
