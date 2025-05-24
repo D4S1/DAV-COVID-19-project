@@ -46,8 +46,6 @@ Aim of this project was showing some same statistic information about course of 
 - (Basic) Poland vs Australia (deaths) line  plot animated \[+\], inteactive \[+\], static \[+\]
 - (Basic) Poland vs Australia (vaccination) line  plot animated \[+\], inteactive \[+\], static \[+\]
 - (Basic) Australia states (vaccination) line  plot animated \[+\], inteactive \[+\], static \[+\]
-- (Basic) Warsaw vs Austrialia states bar plot (new cases)- animated / beg and end (or static lineplot)
-- (Basic) Warsaw vs Austrialia states bar plot (...)- animated / beg and end 
 - (Basic) Map plot with concentration of COVID cases \[+\]
-- (Basic) Map plot with concentration of COVID death
-- (Stats) Trend line based on linear model (split to 2 periods) \[+\]
+- (Basic) Map plot with concentration of COVID death \[+\]
+- (Stats) Time series model prediction for new/total cases/deaths (split to 2 periods) \[+\]
